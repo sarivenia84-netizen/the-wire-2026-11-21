@@ -14,7 +14,8 @@ import os
 import struct
 import zlib
 
-W = H = 1024
+W = 1600
+H = 1150
 OUT = os.path.join(os.environ.get("MAKEFUN_OUTPUT_DIR", "out"), "entry.png")
 
 # ---------------------------------------------------------------- palette
@@ -53,7 +54,6 @@ def hline(x0, x1, y, c, t=1):
 
 def vline(x, y0, y1, c, t=1):
     rect(x, y0, x + t, y1, c)
-
 
 # ---------------------------------------------------------------- font
 # 5x7 bitmap font, each glyph 7 rows of 5-bit integers (MSB = left pixel).
@@ -150,27 +150,38 @@ def center_text(y, s, c, sc=2):
     x = (W - twidth(s, sc)) // 2
     text(x, y, s, c, sc)
 
-
 # ---------------------------------------------------------------- stories
 STORIES = [
-    (RED, "GAZA", "Israel fire kills four;",
-     "drone hits food truck in", "Gaza City"),
     (BLUE, "SAUDI ARABIA", "Coalition intercepts",
-     "3 Houthi missiles aimed", "at Riyadh"),
+     "3 Houthi missiles aimed", "at Riyadh (21 Nov)"),
     (AMBER, "IRAQ", "Basra power plant fire:",
-     "at least 4 dead.", "35 injured"),
+     "at least 4 dead.", "35 injured (21 Nov)"),
     (GREEN, "FINLAND", "Drone strikes Russian",
-     "cargo ship in the Gulf", "of Finland"),
+     "cargo ship in the Gulf", "of Finland (21 Nov)"),
     (BLUE, "EU-INDONESIA", "Tariff pact signed:",
      "98.5% of EU goods", "enter duty-free"),
     (AMBER, "GENEVA", "UN autonomous-weapons",
      "talks extended 2 years;", "still no rules"),
+    (RED, "UKRAINE", "Strike on Kryvyi Rih:",
+     "2 dead, 60 wounded in", "Zelenskyy's hometown"),
+    (RED, "POLAND", "Russian missiles crash",
+     "in Poland during NATO", "drills; EU alarmed"),
+    (BLUE, "HORMUZ", "Iran says it downed",
+     "2 U.S. drones over the", "Strait of Hormuz"),
+    (RED, "IRAN", "Iran strikes 3 tankers,",
+     "shows underground", "missile launchers"),
+    (GREEN, "QATAR", "Qatari mediators in",
+     "Tehran; Iran urges U.S.", "to accept terms"),
+    (AMBER, "PERU", "Magnitude 6.7 quake",
+     "shakes the Andes in", "central Peru - AP"),
     (RED, "MARKETS", "Bitcoin at 2-year low;",
-     "Nvidia rout; S&P 500 and", "Dow in correction"),
+     "Nvidia rout; S&P 500", "and Dow in correction"),
     (GREEN, "ICJ", "Myanmar found guilty of",
      "genocide against the", "Rohingya (9-6 ruling)"),
     (BLUE, "HAITI", "Farmers rebuild amid",
      "gang violence and", "displacement (El Nino)"),
+    (AMBER, "SPAIN", "Sanchez set to lose",
+     "power in next week's", "election - polls"),
 ]
 
 
@@ -194,12 +205,12 @@ def draw():
     text(bx0 + 30, by0 + 76, "DRONE STRIKES FOOD VEHICLE", PAPER, 4)
     text(bx0 + 30, by0 + 112, "IN GAZA CITY - AP - REUTERS", (200, 200, 205), 2)
 
-    # ---- story grid 3x3
+    # ---- story grid 5x3
     gy0 = by1 + 20
-    cw, ch, gap = 296, 176, 14
+    cw, ch, gap = 296, 176, 12
     gx0 = 48
     for i, (col, tag, l1, l2, l3) in enumerate(STORIES):
-        r, cix = divmod(i, 3)
+        r, cix = divmod(i, 5)
         x0 = gx0 + cix * (cw + gap)
         y0 = gy0 + r * (ch + gap)
         rect(x0, y0, x0 + cw, y0 + ch, (255, 253, 248))
@@ -216,7 +227,7 @@ def draw():
     my = gy0 + 3 * ch + 2 * gap + 14
     rect(48, my, W - 48, my + 82, (238, 234, 226))
     rect(48, my, W - 48, my + 82, RULE)
-    text(64, my + 12, "MARKETS - 21 NOV", INK, 2)
+    text(64, my + 12, "DATE CHECK: EVERY STORY SATURDAY 21 NOVEMBER 2026 - 16 STORIES, 7 REGIONS", INK, 2)
     stats = [("BTC", "2Y LOW", RED), ("NVDA", "RECORD ROUT", RED),
              ("S&P 500", "CORRECTION", RED), ("EU TARIFFS", "-98.5%", GREEN)]
     sx = 64
