@@ -84,7 +84,7 @@ FONT = {
     "X": (0b10001, 0b10001, 0b01010, 0b00100, 0b01010, 0b10001, 0b10001),
     "Y": (0b10001, 0b10001, 0b01010, 0b00100, 0b00100, 0b00100, 0b00100),
     "Z": (0b11111, 0b00001, 0b00010, 0b00100, 0b01000, 0b10000, 0b11111),
-    "0": (0b01110, 0b10011, 0b10101, 0b10101, 0b10101, 0b11001, 0b01110),
+    "0": (0b01110, 0b10001, 0b10011, 0b10101, 0b11001, 0b10001, 0b01110),
     "1": (0b00100, 0b01100, 0b00100, 0b00100, 0b00100, 0b00100, 0b01110),
     "2": (0b01110, 0b10001, 0b00001, 0b00110, 0b01000, 0b10000, 0b11111),
     "3": (0b11110, 0b00001, 0b00001, 0b01110, 0b00001, 0b00001, 0b11110),
@@ -98,6 +98,8 @@ FONT = {
     ".": (0, 0, 0, 0, 0, 0b01100, 0b01100),
     ",": (0, 0, 0, 0, 0, 0b01100, 0b00100),
     ":": (0, 0b01100, 0b01100, 0, 0b01100, 0b01100, 0),
+    ";": (0, 0b01100, 0b01100, 0, 0b01100, 0b00100, 0b01000),
+    "&": (0b01100, 0b10010, 0b10100, 0b01000, 0b10101, 0b10010, 0b01101),
     "-": (0, 0, 0, 0b11111, 0, 0, 0),
     "%": (0b11001, 0b11010, 0b00010, 0b00100, 0b01000, 0b01011, 0b10011),
     "!": (0b00100, 0b00100, 0b00100, 0b00100, 0b00100, 0, 0b00100),
@@ -156,20 +158,20 @@ STORIES = [
      "drone hits food truck in", "Gaza City"),
     (BLUE, "SAUDI ARABIA", "Coalition intercepts",
      "3 Houthi missiles aimed", "at Riyadh"),
-    (AMBER, "IRAQ", "Basra power-station fire:",
-     "at least 4 dead,", "35 injured"),
+    (AMBER, "IRAQ", "Basra power plant fire:",
+     "at least 4 dead.", "35 injured"),
     (GREEN, "FINLAND", "Drone strikes Russian",
-     "cargo ship in the Gulf of", "Finland"),
-    (BLUE, "EU-INDONESIA", "Tariff pact signed: 98.5%",
-     "of EU goods enter", "duty-free"),
+     "cargo ship in the Gulf", "of Finland"),
+    (BLUE, "EU-INDONESIA", "Tariff pact signed:",
+     "98.5% of EU goods", "enter duty-free"),
     (AMBER, "GENEVA", "UN autonomous-weapons",
      "talks extended 2 years;", "still no rules"),
     (RED, "MARKETS", "Bitcoin at 2-year low;",
      "Nvidia rout; S&P 500 and", "Dow in correction"),
     (GREEN, "ICJ", "Myanmar found guilty of",
-     "genocide against Rohingya", "(9-6 ruling)"),
-    (BLUE, "HAITI", "Farmers rebuild amid gang",
-     "violence, displacement", "and El Nino"),
+     "genocide against the", "Rohingya (9-6 ruling)"),
+    (BLUE, "HAITI", "Farmers rebuild amid",
+     "gang violence and", "displacement (El Nino)"),
 ]
 
 
@@ -185,7 +187,7 @@ def draw():
     hline(48, W - 48, y + 36, RULE, 1)
 
     # ---- lead story banner
-    bx0, by0, bx1, by1 = 48, y + 52, W - 48, y + 172
+    bx0, by0, bx1, by1 = 48, y + 52, W - 48, y + 202
     rect(bx0, by0, bx1, by1, DARKPANEL)
     rect(bx0, by0, bx0 + 10, by1, RED)
     text(bx0 + 30, by0 + 14, "LEAD STORY - GAZA", (230, 220, 200), 2)
@@ -194,8 +196,8 @@ def draw():
     text(bx0 + 30, by0 + 112, "IN GAZA CITY - AP - REUTERS", (200, 200, 205), 2)
 
     # ---- story grid 3x3
-    gy0 = by1 + 22
-    cw, ch, gap = 296, 196, 16
+    gy0 = by1 + 20
+    cw, ch, gap = 296, 176, 14
     gx0 = 48
     for i, (col, tag, l1, l2, l3) in enumerate(STORIES):
         r, cix = divmod(i, 3)
@@ -212,22 +214,22 @@ def draw():
         rect(x0 + cw - 26, y0 + ch - 22, x0 + cw - 18, y0 + ch - 14, col)
 
     # ---- markets strip
-    my = gy0 + 3 * ch + 2 * gap + 18
-    rect(48, my, W - 48, H - 40, (238, 234, 226))
-    rect(48, my, W - 48, H - 40, RULE)
-    text(64, my + 14, "MARKETS - 21 NOV", INK, 2)
+    my = gy0 + 3 * ch + 2 * gap + 14
+    rect(48, my, W - 48, my + 82, (238, 234, 226))
+    rect(48, my, W - 48, my + 82, RULE)
+    text(64, my + 12, "MARKETS - 21 NOV", INK, 2)
     stats = [("BTC", "2Y LOW", RED), ("NVDA", "RECORD ROUT", RED),
              ("S&P 500", "CORRECTION", RED), ("EU TARIFFS", "-98.5%", GREEN)]
     sx = 64
     for name, val, col in stats:
-        text(sx, my + 44, name, GREY, 2)
-        text(sx, my + 68, val, col, 2)
+        text(sx, my + 40, name, GREY, 2)
+        text(sx, my + 60, val, col, 2)
         sx += 232
 
     # ---- footer
-    text(64, H - 30, "SOURCES: AP - REUTERS - AL JAZEERA - AFP - UN NEWS - ICJ",
+    text(64, H - 26, "SOURCES: AP - REUTERS - AL JAZEERA - AFP - UN NEWS - ICJ",
          GREY, 1)
-    text(W - 64 - twidth("THE WIRE / 2026", 1), H - 30, "THE WIRE / 2026",
+    text(W - 64 - twidth("THE WIRE / 2026", 1), H - 26, "THE WIRE / 2026",
          GREY, 1)
 
 
