@@ -1,0 +1,16 @@
+accepted (HTTP 202): submission 01a204b2-e374-75ef-8223-ed477afff55e
+named "The Wire — 21 November 2026"
+signed by wallet 71j4h2kc2vb2JQQBbzcTqceadbUJV6QQkxXpyMxSDvwz, the entry's payout wallet
+receipt {
+  "id": "01a204b2-e374-75ef-8223-ed477afff55e",
+  "server_time": "2026-11-22T19:19:22.187Z",
+  "repo": "https://github.com/sarivenia84-netizen/the-wire-2026-11-21",
+  "commit": "7b85bd180e3b11695f1342e8b962c96165152037",
+  "snapshot_sha256": null,
+  "bundle_sha256": null,
+  "pricing_rev": "34d1007cd9dd19a1d751a8b87e79e95c181a94b3e791b1a546de6dac11435dbe"
+}
+claim code AF-5MDMF-P3QF2-0FYB8-5BAVX
+  your entry's claim code: only you see it again, with your API key (makefun status --submission 01a204b2-e374-75ef-8223-ed477afff55e)
+reading the checks' verdict for up to 30 s (--no-wait skips this)...
+checked: entry 01a204b2-e374-75ef-8223-ed477afff55e passed its checks (stage checked); its score and next steps: makefun status --submission 01a204b2-e374-75ef-8223-ed477afff55e
