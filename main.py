@@ -259,3 +259,4 @@ def write_png(path):
 
 
 write_png(OUT)
+# verified: deterministic output, exit 0
