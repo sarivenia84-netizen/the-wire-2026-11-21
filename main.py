@@ -181,6 +181,14 @@ STORIES = [
      "gang violence and", "displacement (El Nino)"),
     (AMBER, "SPAIN", "Sanchez set to lose",
      "power in next week's", "election - polls"),
+    (RED, "KYIV", "Trump calls Putin his",
+     "'friend'; Zelenskyy:", "Putin is a 'killer'"),
+    (BLUE, "WASHINGTON", "Trump orders federal",
+     "contractors to check", "with White House first"),
+    (BLUE, "WASHINGTON", "Vance declines to say",
+     "he would have ordered", "the Iran strikes"),
+    (AMBER, "KYIV", "Trump tells European",
+     "leaders they spend a", "lot on Ukraine - NYT"),
 ]
 
 
@@ -196,17 +204,17 @@ def draw():
     hline(48, W - 48, y + 36, RULE, 1)
 
     # ---- lead story banner
-    bx0, by0, bx1, by1 = 48, y + 52, W - 48, y + 202
+    bx0, by0, bx1, by1 = 48, y + 46, W - 48, y + 176
     rect(bx0, by0, bx1, by1, DARKPANEL)
     rect(bx0, by0, bx0 + 10, by1, RED)
-    text(bx0 + 30, by0 + 14, "LEAD STORY - GAZA", (230, 220, 200), 2)
-    text(bx0 + 30, by0 + 44, "ISRAELI FIRE KILLS FOUR;", PAPER, 4)
-    text(bx0 + 30, by0 + 76, "DRONE STRIKES FOOD VEHICLE", PAPER, 4)
-    text(bx0 + 30, by0 + 112, "IN GAZA CITY - AP - REUTERS", (200, 200, 205), 2)
+    text(bx0 + 30, by0 + 12, "LEAD STORY - GAZA", (230, 220, 200), 2)
+    text(bx0 + 30, by0 + 36, "ISRAELI FIRE KILLS FOUR;", PAPER, 3)
+    text(bx0 + 30, by0 + 64, "DRONE STRIKES FOOD VEHICLE", PAPER, 3)
+    text(bx0 + 30, by0 + 96, "IN GAZA CITY - AP - REUTERS", (200, 200, 205), 2)
 
-    # ---- story grid 3x5
-    gy0 = by1 + 16
-    cw, ch, gap = 312, 108, 12
+    # ---- story grid 3x6
+    gy0 = by1 + 14
+    cw, ch, gap = 312, 80, 10
     gx0 = 32
     for i, (col, tag, l1, l2, l3) in enumerate(STORIES):
         r, cix = divmod(i, 3)
@@ -215,24 +223,24 @@ def draw():
         rect(x0, y0, x0 + cw, y0 + ch, (255, 253, 248))
         rect(x0, y0, x0 + cw, y0 + ch, RULE)
         rect(x0, y0, x0 + cw, y0 + 3, col)
-        rect(x0 + 10, y0 + 12, x0 + 10 + twidth(tag, 1) + 8, y0 + 26, col)
-        text(x0 + 14, y0 + 16, tag, PAPER, 1)
+        rect(x0 + 8, y0 + 9, x0 + 8 + twidth(tag, 1) + 8, y0 + 21, col)
+        text(x0 + 12, y0 + 12, tag, PAPER, 1)
         for k, line in enumerate((l1, l2, l3)):
-            text(x0 + 10, y0 + 36 + k * 20, line, INK, 2)
+            text(x0 + 8, y0 + 24 + k * 16, line, INK, 2)
         # tiny map-pin dot
-        rect(x0 + cw - 20, y0 + ch - 16, x0 + cw - 14, y0 + ch - 10, col)
+        rect(x0 + cw - 20, y0 + ch - 14, x0 + cw - 14, y0 + ch - 8, col)
 
     # ---- date-check + markets strip
-    my = gy0 + 5 * ch + 4 * gap + 8
-    rect(32, my, W - 32, my + 74, (238, 234, 226))
-    rect(32, my, W - 32, my + 74, RULE)
-    text(48, my + 12, "DATE CHECK: ALL 15 STORIES SATURDAY 21 NOV 2026 - 7 REGIONS", INK, 2)
+    my = gy0 + 7 * ch + 6 * gap + 4
+    rect(32, my, W - 32, my + 58, (238, 234, 226))
+    rect(32, my, W - 32, my + 58, RULE)
+    text(48, my + 9, "DATE CHECK: ALL 19 STORIES SATURDAY 21 NOV 2026 - 8 REGIONS", INK, 2)
     stats = [("BTC", "2Y LOW", RED), ("NVDA", "RECORD ROUT", RED),
              ("S&P 500", "CORRECTION", RED), ("EU TARIFFS", "-98.5%", GREEN)]
     sx = 48
     for name, val, col in stats:
-        text(sx, my + 34, name, GREY, 2)
-        text(sx, my + 52, val, col, 2)
+        text(sx, my + 27, name, GREY, 2)
+        text(sx, my + 42, val, col, 2)
         sx += 235
 
     # ---- footer
