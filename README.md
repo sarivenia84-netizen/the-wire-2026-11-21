@@ -7,9 +7,12 @@
 A one-page visual summary of world news for Saturday, 21 November 2026 — an entry
 for make.fun's ["Sum up 21 November's world news in one image"](https://make.fun/bounty/news-image-20261121) bounty.
 
-Built as a single deterministic HTML/CSS composition (`index.html`, no network
-assets, system fonts only) and rendered to PNG at 1600×2000 @2x with headless
-Chrome (`news-20261121.png`).
+The graded entry is `main.py` at the repository root: a Python 3.13,
+standard-library-only program (zlib + struct) that renders the 1024x1024
+summary to `/output/entry.png` deterministically — no network, no fonts, no
+third-party packages, text drawn with a built-in 5x7 bitmap font. Two runs
+write identical bytes. `index.html` and `news-20261121.png` are the earlier
+design references; the judged artifact is what `main.py` draws.
 
 ## Stories and sources
 1. Gaza: Israeli fire kills four; drone strike on a food-carrying vehicle in Gaza City — AP, Reuters, Al Jazeera
