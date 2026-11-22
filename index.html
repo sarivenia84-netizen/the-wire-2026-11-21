@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  @page { size: 1600px 2000px; margin: 0; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1600px; height:2000px; }
+  body {
+    font-family: "DejaVu Serif", Georgia, serif;
+    background:#f7f4ec; color:#14120e;
+    padding:70px 80px 60px; display:flex; flex-direction:column;
+  }
+  .masthead { display:flex; align-items:flex-end; justify-content:space-between; border-bottom:6px solid #14120e; padding-bottom:18px; }
+  .logo { font-size:96px; font-weight:700; letter-spacing:-3px; line-height:.9; }
+  .logo span { color:#8a1c1c; }
+  .dateblock { text-align:right; font-family:"DejaVu Sans", Helvetica, sans-serif; font-size:22px; line-height:1.35; }
+  .dateblock b { display:block; font-size:30px; letter-spacing:2px; text-transform:uppercase; }
+
+  .lead { display:grid; grid-template-columns: 1.55fr 1fr; gap:52px; padding:44px 0 36px; border-bottom:2px solid #14120e; }
+  .kicker { font-family:"DejaVu Sans", Helvetica, sans-serif; font-size:20px; font-weight:700; letter-spacing:4px; text-transform:uppercase; color:#8a1c1c; margin-bottom:16px; }
+  h1 { font-size:104px; line-height:.94; letter-spacing:-3.5px; font-weight:700; }
+  h1 em { font-style:italic; color:#8a1c1c; }
+  .standfirst { font-size:30px; line-height:1.42; margin-top:26px; color:#2a2620; max-width:840px; }
+  .standfirst b { font-weight:700; }
+
+  .briefs { display:flex; flex-direction:column; }
+  .brief { padding:0 0 26px; margin-bottom:26px; border-bottom:1px dotted #8b8578; }
+  .brief:last-child { border:0; margin:0; padding:0; }
+  .brief h3 { font-size:34px; line-height:1.12; letter-spacing:-.6px; margin-bottom:10px; }
+  .brief p { font-size:22px; line-height:1.45; color:#3a352c; }
+  .brief .src { font-family:"DejaVu Sans", Helvetica, sans-serif; font-size:15px; letter-spacing:1.6px; text-transform:uppercase; color:#8a8578; margin-top:10px; }
+
+  .lower { display:grid; grid-template-columns: repeat(3, 1fr); gap:48px; padding-top:36px; flex:1; }
+  .col h3 { font-size:30px; line-height:1.15; margin-bottom:12px; letter-spacing:-.4px; }
+  .col p { font-size:21px; line-height:1.5; color:#3a352c; }
+  .col .src { font-family:"DejaVu Sans", Helvetica, sans-serif; font-size:14px; letter-spacing:1.5px; text-transform:uppercase; color:#8a8578; margin-top:12px; }
+  .col .num { font-family:"DejaVu Sans", Helvetica, sans-serif; font-size:15px; font-weight:700; color:#8a1c1c; letter-spacing:2px; display:block; margin-bottom:8px; }
+
+  .stats { display:grid; grid-template-columns: repeat(4,1fr); gap:0; border-top:2px solid #14120e; border-bottom:1px solid #14120e; margin-top:36px; }
+  .stat { padding:26px 30px; border-right:1px solid #c9c2b2; }
+  .stat:last-child { border:0; }
+  .stat b { display:block; font-size:64px; letter-spacing:-2px; line-height:1; color:#8a1c1c; font-weight:700; }
+  .stat span { font-family:"DejaVu Sans", Helvetica, sans-serif; font-size:17px; letter-spacing:1.2px; text-transform:uppercase; color:#5a554a; display:block; margin-top:10px; }
+
+  footer { border-top:6px solid #14120e; margin-top:34px; padding-top:16px; display:flex; justify-content:space-between; font-family:"DejaVu Sans", Helvetica, sans-serif; font-size:17px; letter-spacing:1.4px; text-transform:uppercase; color:#5a554a; }
+</style>
+</head>
+<body>
+  <div class="masthead">
+    <div class="logo">THE D<span>·</span>WIRE</div>
+    <div class="dateblock"><b>Saturday · 21 November 2026</b>World news in one page · compiled from AP, Reuters, NPR, WSJ</div>
+  </div>
+
+  <div class="lead">
+    <div>
+      <div class="kicker">Gaza · Middle East</div>
+      <h1>An aid truck, <em>hit</em> on the road to Gaza City</h1>
+      <p class="standfirst">Gaza's civil defence agency reported <b>four people killed by Israeli fire on Saturday</b>, three of them in a drone strike on a food-carrying vehicle in Gaza City and one by gunfire in Jabalia. Israel's military said it struck Islamic Jihad operatives. Across the region, Iran displayed a new underground missile launcher while the UAE — with U.S. help — kept shuttling oil past Iranian attacks in the Strait of Hormuz.</p>
+    </div>
+    <div class="briefs">
+      <div class="brief">
+        <h3>Houthi missiles turned back over Riyadh</h3>
+        <p>The Saudi-led coalition intercepted three missiles launched from Houthi-held Yemen toward the Saudi capital.</p>
+        <div class="src">Al Jazeera</div>
+      </div>
+      <div class="brief">
+        <h3>Iraq: fire at a Basra power station</h3>
+        <p>At least four dead and around 35 injured after flames tore through the plant in the southern oil hub.</p>
+        <div class="src">Reuters</div>
+      </div>
+      <div class="brief">
+        <h3>Baltic: drone hits a Russian cargo ship</h3>
+        <p>The vessel caught fire in international waters of the Gulf of Finland; Finland then imposed temporary airspace and maritime restrictions.</p>
+        <div class="src">AFP</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lower">
+    <div class="col">
+      <span class="num">01 — Trade</span>
+      <h3>Indonesia and the EU sign a tariff-lifting deal</h3>
+      <p>After a decade of negotiations, the two sides signed trade and investment agreements that will lift 98.5% of tariffs on EU goods, one of Brussels' largest deals in years.</p>
+      <div class="src">Euronews</div>
+    </div>
+    <div class="col">
+      <span class="num">02 — Geneva</span>
+      <h3>Killer-robot talks agree only to keep talking</h3>
+      <p>U.N.-backed negotiations on autonomous weapons and armed drones ended with a softened pact extending discussions two more years, and no firm commitment to rein them in.</p>
+      <div class="src">AP / NPR</div>
+    </div>
+    <div class="col">
+      <span class="num">03 — Markets</span>
+      <h3>Bitcoin at a two-year low; Nvidia leads an AI sell-off</h3>
+      <p>Wall Street closed sharply lower, with the S&amp;P 500 and the Dow slipping into correction as Nvidia suffered a record rout — while a summit in Shenzhen gave China's Xi room to strengthen his hand.</p>
+      <div class="src">Reuters / WSJ</div>
+    </div>
+    <div class="col">
+      <span class="num">04 — The Hague</span>
+      <h3>Myanmar found to have committed genocide</h3>
+      <p>The International Court of Justice held a state responsible for genocide for the first time, ruling 9–6 that Myanmar's campaign against the Rohingya breached the 1948 convention. There is no appeal.</p>
+      <div class="src">IPS / ICJ</div>
+    </div>
+    <div class="col">
+      <span class="num">05 — Haiti</span>
+      <h3>Farmers rebuild between gangs and El Niño</h3>
+      <p>Homes abandoned, harvests failing: years of gang violence, displacement and climate shocks have left millions of Haitians unable to meet their food needs.</p>
+      <div class="src">UN News</div>
+    </div>
+    <div class="col">
+      <span class="num">06 — Madrid</span>
+      <h3>Sánchez fights for his political life</h3>
+      <p>Europe's most prominent left-wing leader looks set to lose power in an election next week as he tours the country in a last-ditch bid to turn his campaign around.</p>
+      <div class="src">New York Times</div>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><b>4</b><span>killed by Israeli fire in Gaza on Saturday</span></div>
+    <div class="stat"><b>3</b><span>Houthi missiles intercepted over Riyadh</span></div>
+    <div class="stat"><b>98.5%</b><span>of EU tariffs lifted by the Indonesia deal</span></div>
+    <div class="stat"><b>2 yrs</b><span>of further talks on autonomous weapons</span></div>
+  </div>
+
+  <footer>
+    <span>The Wire · one image, one day</span>
+    <span>Sources: AP · Reuters · NPR · WSJ · Al Jazeera · Euronews · AFP</span>
+  </footer>
+</body>
+</html>
