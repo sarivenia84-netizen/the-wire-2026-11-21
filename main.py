@@ -14,8 +14,7 @@ import os
 import struct
 import zlib
 
-W = 1600
-H = 1150
+W = H = 1024
 OUT = os.path.join(os.environ.get("MAKEFUN_OUTPUT_DIR", "out"), "entry.png")
 
 # ---------------------------------------------------------------- palette
@@ -205,36 +204,36 @@ def draw():
     text(bx0 + 30, by0 + 76, "DRONE STRIKES FOOD VEHICLE", PAPER, 4)
     text(bx0 + 30, by0 + 112, "IN GAZA CITY - AP - REUTERS", (200, 200, 205), 2)
 
-    # ---- story grid 5x3
-    gy0 = by1 + 20
-    cw, ch, gap = 296, 176, 12
-    gx0 = 48
+    # ---- story grid 3x5
+    gy0 = by1 + 16
+    cw, ch, gap = 312, 108, 12
+    gx0 = 32
     for i, (col, tag, l1, l2, l3) in enumerate(STORIES):
-        r, cix = divmod(i, 5)
+        r, cix = divmod(i, 3)
         x0 = gx0 + cix * (cw + gap)
         y0 = gy0 + r * (ch + gap)
         rect(x0, y0, x0 + cw, y0 + ch, (255, 253, 248))
         rect(x0, y0, x0 + cw, y0 + ch, RULE)
-        rect(x0, y0, x0 + cw, y0 + 4, col)
-        rect(x0 + 12, y0 + 18, x0 + 12 + twidth(tag, 1) + 10, y0 + 34, col)
-        text(x0 + 17, y0 + 23, tag, PAPER, 1)
+        rect(x0, y0, x0 + cw, y0 + 3, col)
+        rect(x0 + 10, y0 + 12, x0 + 10 + twidth(tag, 1) + 8, y0 + 26, col)
+        text(x0 + 14, y0 + 16, tag, PAPER, 1)
         for k, line in enumerate((l1, l2, l3)):
-            text(x0 + 12, y0 + 52 + k * 22, line, INK, 2)
+            text(x0 + 10, y0 + 36 + k * 20, line, INK, 2)
         # tiny map-pin dot
-        rect(x0 + cw - 26, y0 + ch - 22, x0 + cw - 18, y0 + ch - 14, col)
+        rect(x0 + cw - 20, y0 + ch - 16, x0 + cw - 14, y0 + ch - 10, col)
 
-    # ---- markets strip
-    my = gy0 + 3 * ch + 2 * gap + 14
-    rect(48, my, W - 48, my + 82, (238, 234, 226))
-    rect(48, my, W - 48, my + 82, RULE)
-    text(64, my + 12, "DATE CHECK: EVERY STORY SATURDAY 21 NOVEMBER 2026 - 16 STORIES, 7 REGIONS", INK, 2)
+    # ---- date-check + markets strip
+    my = gy0 + 5 * ch + 4 * gap + 8
+    rect(32, my, W - 32, my + 74, (238, 234, 226))
+    rect(32, my, W - 32, my + 74, RULE)
+    text(48, my + 12, "DATE CHECK: ALL 15 STORIES SATURDAY 21 NOV 2026 - 7 REGIONS", INK, 2)
     stats = [("BTC", "2Y LOW", RED), ("NVDA", "RECORD ROUT", RED),
              ("S&P 500", "CORRECTION", RED), ("EU TARIFFS", "-98.5%", GREEN)]
-    sx = 64
+    sx = 48
     for name, val, col in stats:
-        text(sx, my + 40, name, GREY, 2)
-        text(sx, my + 60, val, col, 2)
-        sx += 232
+        text(sx, my + 34, name, GREY, 2)
+        text(sx, my + 52, val, col, 2)
+        sx += 235
 
     # ---- footer
     text(64, H - 26, "SOURCES: AP - REUTERS - AL JAZEERA - AFP - UN NEWS - ICJ",
